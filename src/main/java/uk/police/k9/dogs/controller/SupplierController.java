@@ -35,10 +35,7 @@ import uk.police.k9.dogs.service.SupplierService;
 
 import java.net.URI;
 
-/**
- * The breeders and kennels the force takes dogs from. A supplier is a record in its own right
- * because more than one dog can come from the same place, and its details are corrected once.
- */
+/** The breeders and kennels the force takes dogs from, corrected in one place per supplier. */
 @Controller(ApiPaths.SUPPLIERS)
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)

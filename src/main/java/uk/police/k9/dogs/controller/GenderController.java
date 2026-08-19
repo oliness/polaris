@@ -14,11 +14,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * The permitted values for a dog's gender. Gender is the one enumerated field on a dog that is a
- * closed set rather than something the force maintains, so it stays an enum and this endpoint is
- * read-only - but a client can still populate a drop-down from it as it does for the lookups.
- *
- * <p>The list is short, fixed and complete, so it is returned whole rather than paged.
+ * The permitted values for a dog's gender - a closed set, so an enum rather than a maintained
+ * lookup, but still published so a client builds the drop-down as it does for the others. Short
+ * and fixed, so returned whole rather than paged.
  */
 @Controller(ApiPaths.GENDERS)
 @Produces(MediaType.APPLICATION_JSON)

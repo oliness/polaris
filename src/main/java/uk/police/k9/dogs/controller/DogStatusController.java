@@ -11,9 +11,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import uk.police.k9.dogs.service.DogStatusService;
 
 /**
- * The statuses a dog can hold. The task lists In Training, In Service, Retired and Left as the
- * values that are <em>currently</em> possible, so they are rows the force maintains here rather
- * than an enum that would need a release.
+ * The statuses a dog can hold. The task lists the values <em>currently</em> possible, so they are
+ * rows the force maintains rather than an enum that would need a release.
  */
 @Controller(ApiPaths.STATUSES)
 @Consumes(MediaType.APPLICATION_JSON)

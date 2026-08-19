@@ -23,12 +23,9 @@ import java.util.List;
 import java.util.StringJoiner;
 
 /**
- * Turns a failed {@code @Valid} request into {@code 400}, listing every rejected field. Micronaut's
- * own handler flattens the violations into sentences; this one keeps each field and its message
- * apart so a client can attach the message to the input that caused it.
- *
- * <p>A constraint spanning several fields - {@code @ValidDogTimeline} - has no single field to
- * blame, so its message becomes the headline message instead.
+ * Turns a failed {@code @Valid} request into {@code 400}, listing every rejected field separately
+ * rather than flattening the violations into sentences as Micronaut's own handler does. A
+ * constraint spanning several fields has no field to blame, so its message becomes the headline.
  */
 @Singleton
 @Replaces(ConstraintExceptionHandler.class)
@@ -48,8 +45,7 @@ public class ValidationExceptionHandler
     public HttpResponse<?> handle(HttpRequest request, ConstraintViolationException exception) {
         List<Error> errors = exception.getConstraintViolations().stream()
                 .<Error>map(ValidationExceptionHandler::toError)
-                // Violations arrive in an unspecified order; sorting them keeps the response
-                // stable, which matters both for clients and for tests.
+                // Violations arrive in an unspecified order; sorting keeps the response stable.
                 .sorted(Comparator.comparing(error -> error.getPath().orElse("")))
                 .toList();
 
@@ -69,9 +65,9 @@ public class ValidationExceptionHandler
     }
 
     /**
-     * Validating a controller argument produces a path like {@code create.request.birthDate}; only
-     * the trailing property names mean anything outside the application. A constraint on the
-     * argument as a whole leaves nothing behind, which is how a cross-field failure is recognised.
+     * A controller argument gives a path like {@code create.request.birthDate}; only the trailing
+     * property names mean anything outside. A cross-field constraint leaves nothing behind, which
+     * is how it is recognised.
      */
     @Nullable
     private static String field(Path propertyPath) {

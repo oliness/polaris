@@ -11,8 +11,8 @@ import io.micronaut.http.server.exceptions.response.ErrorResponseProcessor;
 import jakarta.inject.Singleton;
 
 /**
- * Answers {@code 409} when a well-formed request cannot be applied to the register as it stands -
- * a badge another dog carries, a record kept only for audit, or one someone else has changed.
+ * Answers {@code 409} when a well-formed request cannot be applied - a badge another dog carries,
+ * a record kept only for audit, or one someone else has changed.
  */
 @Singleton
 @Produces(MediaType.APPLICATION_JSON)

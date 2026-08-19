@@ -8,10 +8,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
-/**
- * The details needed to create or replace a dog status or a leaving reason. Both lookups share
- * this shape, so they share this request type.
- */
+/** The details needed to create or replace a dog status or a leaving reason; both share it. */
 @Serdeable
 @Schema(name = "ReferenceDataRequest", description = "A maintainable lookup value")
 public record ReferenceDataRequest(

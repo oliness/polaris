@@ -13,10 +13,9 @@ import io.micronaut.http.server.exceptions.response.ErrorResponseProcessor;
 import jakarta.inject.Singleton;
 
 /**
- * Answers {@code 400} when a parameter could not be converted - most often a {@code filter} that
- * is not the JSON the dogs list expects. Micronaut's own handler buries the useful part in
- * {@code Failed to convert argument [filter] for value [...]}; this one names the parameter in
- * {@code details} and lets the underlying explanation be the message.
+ * Answers {@code 400} when a parameter could not be converted - most often a {@code filter} that is
+ * not the JSON the dogs list expects. Micronaut's own handler buries the useful part; this one
+ * names the parameter in {@code details} and lets the underlying explanation be the message.
  */
 @Singleton
 @Replaces(ConversionErrorHandler.class)

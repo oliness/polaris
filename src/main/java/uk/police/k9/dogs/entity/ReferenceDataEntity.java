@@ -2,10 +2,7 @@ package uk.police.k9.dogs.entity;
 
 import io.micronaut.core.annotation.Nullable;
 
-/**
- * Base class for the lookup tables the force maintains through the API - the statuses and leaving
- * reasons the task describes as the values that are <em>currently</em> possible.
- */
+/** Base class for the lookup tables the force maintains through the API. */
 public abstract class ReferenceDataEntity extends AuditedEntity {
 
     /** Stable machine-readable identifier, e.g. {@code IN_SERVICE}. */

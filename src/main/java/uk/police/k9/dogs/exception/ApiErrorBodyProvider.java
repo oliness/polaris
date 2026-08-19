@@ -12,8 +12,8 @@ import java.util.List;
 
 /**
  * Builds the body of every failed response as an {@link ApiError}. Micronaut routes its own errors
- * through this provider and the application's handlers delegate here too, so the API answers with
- * one shape throughout. Declaring the bean also switches off the framework's HAL-style default.
+ * here and the application's handlers delegate here too, so the API answers with one shape
+ * throughout; declaring the bean also switches off the framework's HAL-style default.
  */
 @Singleton
 public class ApiErrorBodyProvider implements JsonErrorResponseBodyProvider<ApiError> {
@@ -31,10 +31,7 @@ public class ApiErrorBodyProvider implements JsonErrorResponseBodyProvider<ApiEr
                 errorContext.getRequest().getPath(), details);
     }
 
-    /**
-     * The first error not belonging to a particular field, falling back to a summary when every
-     * error is a field error and to the status itself when there was no message at all.
-     */
+    /** The first error not belonging to a field, falling back to a summary and then the status. */
     private static String message(ErrorContext errorContext, HttpStatus status,
                                   List<ApiError.FieldError> details) {
         return errorContext.getErrors().stream()

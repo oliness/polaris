@@ -5,10 +5,7 @@ import uk.police.k9.dogs.entity.Gender;
 
 import java.time.LocalDate;
 
-/**
- * Builds a valid {@link DogRequest} so each test states only the part it cares about - a dog has
- * enough required fields to bury the value under test otherwise.
- */
+/** Builds a valid {@link DogRequest} so each test states only the part it cares about. */
 public final class DogRequestBuilder {
 
     private String name = "Baxter";

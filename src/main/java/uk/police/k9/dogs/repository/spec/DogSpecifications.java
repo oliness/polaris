@@ -8,8 +8,8 @@ import uk.police.k9.dogs.entity.Dog;
 import java.util.Locale;
 
 /**
- * The criteria behind {@code GET /api/dogs/dogs}. Each term is a separate specification and the
- * list endpoint composes only the ones supplied, so one query method serves every combination.
+ * The criteria behind {@code GET /api/dogs/dogs}. Each term is a separate specification, composed
+ * only when supplied, so one query method serves every combination.
  */
 public final class DogSpecifications {
 
@@ -23,9 +23,6 @@ public final class DogSpecifications {
     private DogSpecifications() {
     }
 
-    /**
-     * @return a specification matching every supplied term, or {@code null} when none were given
-     */
     public static PredicateSpecification<Dog> matching(DogFilter filter) {
         PredicateSpecification<Dog> specification = null;
         if (filter.hasName()) {
@@ -61,7 +58,7 @@ public final class DogSpecifications {
         return left == null ? right : left.and(right);
     }
 
-    /** Matches the term anywhere in the value, treating any wildcard typed as an ordinary character. */
+    /** Matches the term anywhere in the value, treating any wildcard typed as a literal. */
     private static String containsPattern(String value) {
         String escaped = value.trim()
                 .toLowerCase(Locale.ROOT)

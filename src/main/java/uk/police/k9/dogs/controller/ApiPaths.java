@@ -1,9 +1,6 @@
 package uk.police.k9.dogs.controller;
 
-/**
- * The routes the API exposes. Every one sits under {@link #ROOT}, as the task requires, so keeping
- * the prefix in one constant makes that checkable rather than spread across five controllers.
- */
+/** The routes the API exposes, all under {@link #ROOT} as the task requires. */
 public final class ApiPaths {
 
     public static final String ROOT = "/api/dogs";

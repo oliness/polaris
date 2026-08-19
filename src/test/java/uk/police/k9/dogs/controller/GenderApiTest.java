@@ -14,11 +14,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * The genders endpoint. Gender is the one enumerated value on a dog that the force does not
- * maintain, so it is published read-only - a client can still build its drop-down from the API
- * rather than hard-coding the values.
- */
+/** The genders endpoint: read-only, since the force does not maintain the values. */
 @MicronautTest
 @DisplayName("GET /api/dogs/genders")
 class GenderApiTest {

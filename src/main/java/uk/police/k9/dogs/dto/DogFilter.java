@@ -8,11 +8,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
  * The search terms accepted by the dogs list endpoint, supplied as JSON in the {@code filter}
- * query parameter: {@code ?filter={"breed":"malinois","supplier":"ashcombe"}}.
- *
- * <p>Each term is an optional, case-insensitive "contains" match and the terms are combined with
- * AND. An unknown key is rejected rather than ignored, so a mistyped term fails loudly instead of
- * silently widening the search.
+ * query parameter. Each term is an optional, case-insensitive "contains" match combined with AND;
+ * an unknown key is rejected rather than ignored, so a mistyped term fails loudly.
  */
 @Serdeable
 @JsonIgnoreProperties(ignoreUnknown = false)
@@ -34,7 +31,6 @@ public record DogFilter(
 
     private static final DogFilter EMPTY = new DogFilter(null, null, null);
 
-    /** @return a filter that matches everything. */
     public static DogFilter empty() {
         return EMPTY;
     }

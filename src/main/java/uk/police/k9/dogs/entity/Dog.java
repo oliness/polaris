@@ -9,9 +9,6 @@ import io.micronaut.data.model.DataType;
 
 import java.time.LocalDate;
 
-/**
- * A dog registered with the police force.
- */
 @MappedEntity("dog")
 public class Dog extends AuditedEntity {
 

@@ -73,10 +73,7 @@ public class DogService {
                 dogMapper::toResponse);
     }
 
-    /**
-     * A deleted dog is still returned here, flagged {@code deleted}: an auditor holding an
-     * identifier has to be able to read the record being kept for them.
-     */
+    /** A deleted dog is still returned, flagged {@code deleted}, so an auditor can read it. */
     @ReadOnly
     public DogResponse get(Long id) {
         return dogMapper.toResponse(findOrThrow(id));
@@ -117,8 +114,8 @@ public class DogService {
     }
 
     /**
-     * Loads the records the request points at, refusing any the force has retired - a dog cannot
-     * be sourced from a deleted supplier or given a deleted status.
+     * Loads the records the request points at, refusing any the force has retired - a dog cannot be
+     * sourced from a deleted supplier or given a deleted status.
      */
     private DogReferences resolveReferences(DogRequest request) {
         Supplier supplier = supplierRepository.findById(request.supplierId())
@@ -146,8 +143,8 @@ public class DogService {
     }
 
     /**
-     * A badge may only be held by one active dog at a time. Deleted dogs keep theirs, so the audit
-     * trail still shows who carried it.
+     * A badge may be held by one active dog at a time. Deleted dogs keep theirs, so the audit trail
+     * still shows who carried it.
      */
     private void requireBadgeAvailable(String badgeId, Long currentDogId) {
         if (badgeId == null || badgeId.isBlank()) {

@@ -15,10 +15,8 @@ import uk.police.k9.dogs.validation.ValidDogTimeline;
 import java.time.LocalDate;
 
 /**
- * The details needed to create or replace a dog. Relationships are supplied as identifiers,
- * discoverable through {@code /api/dogs/suppliers}, {@code /api/dogs/statuses} and
- * {@code /api/dogs/leaving-reasons}. The rules spanning more than one field are enforced by
- * {@link ValidDogTimeline}.
+ * The details needed to create or replace a dog. Relationships are supplied as identifiers; the
+ * rules spanning more than one field are enforced by {@link ValidDogTimeline}.
  */
 @Serdeable
 @ValidDogTimeline

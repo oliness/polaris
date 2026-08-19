@@ -10,10 +10,7 @@ import io.micronaut.validation.Validated;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import uk.police.k9.dogs.service.LeavingReasonService;
 
-/**
- * The reasons a dog can leave the force. As with the statuses, the task lists the reasons that are
- * <em>currently</em> possible, so they are maintained as data rather than code.
- */
+/** The reasons a dog can leave the force, maintained as data as the statuses are. */
 @Controller(ApiPaths.LEAVING_REASONS)
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)

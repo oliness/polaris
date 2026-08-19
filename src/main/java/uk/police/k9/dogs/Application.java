@@ -6,9 +6,6 @@ import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.info.License;
 
-/**
- * Entry point for the Police K9 Dogs API.
- */
 @OpenAPIDefinition(
         info = @Info(
                 title = "Police K9 Dogs API",

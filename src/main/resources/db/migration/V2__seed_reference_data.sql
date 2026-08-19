@@ -1,8 +1,5 @@
---
--- The values the force currently recognises. These live in tables (not as database enums)
--- so that they can be maintained through /api/dogs/statuses and /api/dogs/leaving-reasons
--- without a schema change.
---
+-- The values the force currently recognises, held in tables so they can be maintained through
+-- /api/dogs/statuses and /api/dogs/leaving-reasons without a schema change.
 INSERT INTO dog_status (code, label, description, display_order, created_at, updated_at)
 VALUES ('IN_TRAINING', 'In Training', 'Undergoing initial or conversion training.', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
        ('IN_SERVICE', 'In Service', 'Operationally deployed with a handler.', 20, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),

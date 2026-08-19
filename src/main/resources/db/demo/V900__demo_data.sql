@@ -1,8 +1,4 @@
---
--- Sample data for local exploration. This migration is only on the Flyway path when the
--- 'dev' environment is active (see application-dev.properties), so tests and production
--- start from an empty register.
---
+-- Sample data for local exploration, on the Flyway path only in the 'dev' environment.
 INSERT INTO supplier (name, contact_name, contact_email, contact_phone, address, created_at, updated_at)
 VALUES ('Ravenscroft Working Dogs', 'Marie Ravenscroft', 'kennels@ravenscroft.example', '01592 555 210',
         'Ravenscroft Farm, Kinross, KY13 9XX', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -28,22 +24,16 @@ SELECT d.name,
        CURRENT_TIMESTAMP
 FROM (VALUES ('Baxter', 'German Shepherd', 'Ravenscroft Working Dogs', 'K9-1041', 'MALE', DATE '2020-03-14',
               DATE '2021-01-06', 'IN_SERVICE', NULL, NULL,
-              'Settles quickly. Must not be kennelled next to entire males.'),
+              'Must not be kennelled next to entire males.'),
              ('Nala', 'Belgian Malinois', 'Ashcombe Malinois', 'K9-1042', 'FEMALE', DATE '2021-06-02',
               DATE '2022-02-14', 'IN_SERVICE', NULL, NULL,
-              'High drive - remove all toys from the kennel overnight.'),
+              'High drive - no toys in the kennel overnight.'),
              ('Rufus', 'Springer Spaniel', 'Northgate Kennels', 'K9-1043', 'MALE', DATE '2019-11-21',
               DATE '2020-09-30', 'RETIRED', NULL, NULL,
-              'Elderly. Needs orthopaedic bedding and a low step.'),
-             ('Sable', 'Belgian Malinois', 'Ashcombe Malinois', 'K9-1044', 'FEMALE', DATE '2023-04-18',
-              DATE '2024-01-22', 'IN_TRAINING', NULL, NULL,
-              'Noise sensitive. Kennel away from the vehicle bay.'),
+              'Elderly. Needs orthopaedic bedding.'),
              ('Tank', 'German Shepherd', 'Ravenscroft Working Dogs', 'K9-1045', 'MALE', DATE '2018-02-09',
               DATE '2019-05-11', 'LEFT', DATE '2025-03-31', 'RETIRED_REHOUSED',
               'Re-housed with former handler.'),
-             ('Willow', 'Cocker Spaniel', 'Northgate Kennels', 'K9-1046', 'FEMALE', DATE '2022-08-30',
-              DATE '2023-06-05', 'IN_SERVICE', NULL, NULL,
-              'Food guarding - feed separately.'),
              ('Ziggy', 'Dutch Herder', 'Ashcombe Malinois', NULL, 'MALE', DATE '2024-05-02',
               DATE '2025-02-17', 'IN_TRAINING', NULL, NULL,
               'Chews bedding. Rubber matting only.')) AS d (name, breed, supplier_name, badge_id, gender,
@@ -51,7 +41,7 @@ FROM (VALUES ('Baxter', 'German Shepherd', 'Ravenscroft Working Dogs', 'K9-1041'
                                                             leaving_date, leaving_reason_code,
                                                             kennelling_characteristic);
 
--- One soft-deleted record, so that the effect of the default list filter is visible.
+-- One soft-deleted record, so the default list filter has something to hide.
 INSERT INTO dog (name, breed, supplier_id, badge_id, gender, birth_date, date_acquired, status_id,
                  leaving_date, leaving_reason_id, kennelling_characteristic, created_at, updated_at, deleted_at)
 VALUES ('Bruno', 'Rottweiler',

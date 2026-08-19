@@ -13,8 +13,7 @@ repositories {
 }
 
 dependencies {
-    // MapStruct must come before the Micronaut processors so the mappers it generates are
-    // visible to Micronaut's bean definition processor in the same compilation round.
+    // Before the Micronaut processors, so its mappers are visible to bean definition processing.
     annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut:micronaut-http-validation")
@@ -28,8 +27,7 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.validation:micronaut-validation")
     implementation("jakarta.validation:jakarta.validation-api")
-    // Micronaut Data's criteria API is built on the JPA criteria types, so the API jar is
-    // needed even though no JPA provider is used.
+    // Micronaut Data's criteria API is built on the JPA criteria types, so the API jar is needed.
     implementation("jakarta.persistence:jakarta.persistence-api")
     implementation("org.mapstruct:mapstruct:$mapstructVersion")
 
@@ -77,12 +75,9 @@ tasks.withType<JavaCompile>().configureEach {
         )
     )
 
-    // micronaut-openapi reads openapi.properties to decide which documentation views to write
-    // into META-INF/swagger/views, but Gradle cannot see that the file is consulted: it is read
-    // by the processor, not passed on the compiler command line. Without declaring it, enabling a
-    // view leaves compileJava up to date - or served from the build cache, which a `clean` does
-    // not help with - and the view silently never appears. Declaring it as an input makes a
-    // toggle invalidate the task, so the assets are regenerated on the next ordinary build.
+    // micronaut-openapi reads this file directly rather than via the compiler command line, so
+    // without declaring it an input, toggling a view leaves compileJava up to date - or served
+    // from the build cache, which `clean` does not defeat - and the view silently never appears.
     inputs.file(rootProject.layout.projectDirectory.file("openapi.properties"))
         .withPropertyName("openapiProperties")
         .withPathSensitivity(PathSensitivity.RELATIVE)

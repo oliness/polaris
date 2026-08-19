@@ -23,10 +23,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * The database's own guard against two people editing the same record at once, and the answer the
- * caller gets when it fires. A caller who sends back the version it read is refused earlier, by
- * the service - that is covered by the API tests. This is the race that gets past that, which
- * needs two transactions interleaved and so is driven through the repository rather than HTTP.
+ * The database's own guard against two people editing one record at once. A caller who sends back
+ * the version it read is refused earlier, by the service; this is the race that gets past that,
+ * which needs two transactions interleaved and so is driven through the repository, not HTTP.
  */
 @MicronautTest(transactional = false)
 @Property(name = "datasources.default.url", value = "jdbc:h2:mem:locking;DB_CLOSE_DELAY=-1")

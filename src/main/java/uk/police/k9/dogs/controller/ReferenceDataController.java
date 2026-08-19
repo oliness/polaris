@@ -28,12 +28,9 @@ import uk.police.k9.dogs.service.ReferenceDataService;
 import java.net.URI;
 
 /**
- * The endpoints every maintainable lookup exposes.
- *
- * <p>Dog statuses and leaving reasons are the same resource over different rows, so - as with
- * {@link ReferenceDataService} behind them - the routes are declared here once and each subclass
- * supplies only its service and its path. The subclass carries {@code @Controller}, which is what
- * binds these routes to that path.
+ * The endpoints every maintainable lookup exposes. Dog statuses and leaving reasons are the same
+ * resource over different rows, so the routes are declared once and each subclass supplies only
+ * its service and path; the subclass carries {@code @Controller}, which binds them to that path.
  */
 public abstract class ReferenceDataController {
 

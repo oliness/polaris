@@ -10,8 +10,7 @@ import java.lang.annotation.Target;
 
 /**
  * Class-level constraint on the rules spanning more than one field of a dog: it cannot be acquired
- * before it was born or leave before it was acquired, and a leaving date and reason travel
- * together. Implemented by {@link DogValidationFactory}.
+ * before it was born or leave before it was acquired, and a leaving date and reason go together.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

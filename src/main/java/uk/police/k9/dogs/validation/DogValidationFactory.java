@@ -6,8 +6,8 @@ import jakarta.inject.Singleton;
 import uk.police.k9.dogs.dto.DogRequest;
 
 /**
- * Supplies the validator behind {@link ValidDogTimeline}. Micronaut resolves constraint validators
- * as beans, and each failure sets its own message so the caller is told which rule was broken.
+ * Supplies the validator behind {@link ValidDogTimeline}. Each failure sets its own message, so the
+ * caller is told which rule was broken.
  */
 @Factory
 public class DogValidationFactory {

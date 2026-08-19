@@ -6,9 +6,8 @@ import io.micronaut.http.server.exceptions.response.Error;
 import java.util.Optional;
 
 /**
- * One thing that was wrong with a request, in the shape Micronaut's error pipeline understands.
- * An error naming a field becomes an entry in {@code details}; one without becomes the headline
- * message.
+ * One thing wrong with a request, in the shape Micronaut's error pipeline understands. An error
+ * naming a field becomes an entry in {@code details}; one without becomes the headline message.
  */
 record RequestError(@Nullable String field, String message) implements Error {
 

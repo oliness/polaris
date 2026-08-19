@@ -46,8 +46,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * The rules the register enforces, tested without a database or a server. The mappers are the real
- * generated ones, so the assertions are made against the response a caller would receive.
+ * The rules the register enforces, without a database or a server. The mappers are the real
+ * generated ones, so assertions are made against the response a caller would receive.
  */
 @ExtendWith(MockitoExtension.class)
 @DisplayName("The register of dogs")
@@ -356,12 +356,9 @@ class DogServiceTest {
     }
 
     /**
-     * Matches any search criteria, saying which kind it is.
-     *
-     * <p>Micronaut Data overloads {@code findAll}: a bare {@code any()} matches both
-     * {@code (PredicateSpecification, Pageable)}, which returns a page, and
-     * {@code (QuerySpecification, Sort)}, which returns a list - {@code Pageable} is a
-     * {@code Sort}, so neither is the more specific. Naming the type picks the paged one.
+     * Matches any search criteria, saying which kind it is. Micronaut Data overloads
+     * {@code findAll}, and {@code Pageable} is a {@code Sort}, so a bare {@code any()} is ambiguous
+     * between the paged and the list overload; naming the type picks the paged one.
      */
     private static PredicateSpecification<Dog> anySpecification() {
         return ArgumentMatchers.any();

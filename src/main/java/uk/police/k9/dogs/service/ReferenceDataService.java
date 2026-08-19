@@ -22,12 +22,9 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 /**
- * The behaviour every maintainable lookup needs. Dog statuses and leaving reasons are the same
- * thing over different rows, so the rules live here once and the subclasses supply only the
- * repository, an entity factory and the name to use in error messages.
- *
- * <p>Deleting a value retires it: dogs that already hold it keep it - which is what makes the
- * history readable years later - but it can no longer be assigned.
+ * The behaviour every maintainable lookup needs; statuses and leaving reasons are the same thing
+ * over different rows, so the subclasses supply only a repository, an entity factory and a name.
+ * Deleting a value retires it: dogs that already hold it keep it, but it can no longer be assigned.
  */
 public abstract class ReferenceDataService<E extends ReferenceDataEntity> {
 

@@ -28,9 +28,8 @@ import uk.police.k9.dogs.support.DogRequestBuilder;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * The suppliers endpoint. A supplier is a record of its own because more than one dog can come
- * from the same breeder or kennels, so the interesting behaviour is what happens to those dogs
- * when the supplier is deleted.
+ * The suppliers endpoint. A supplier is a record of its own because more than one dog can come from
+ * the same breeder, so the interesting behaviour is what happens to those dogs when it is deleted.
  */
 @MicronautTest(transactional = false)
 @Property(name = "datasources.default.url", value = "jdbc:h2:mem:suppliers-api;DB_CLOSE_DELAY=-1")

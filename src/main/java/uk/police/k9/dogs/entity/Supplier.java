@@ -5,7 +5,7 @@ import io.micronaut.data.annotation.MappedEntity;
 
 /**
  * The breeder or kennels a dog came from. Its own table because more than one dog can come from
- * the same supplier, and its contact details are corrected in one place.
+ * the same supplier.
  */
 @MappedEntity("supplier")
 public class Supplier extends AuditedEntity {

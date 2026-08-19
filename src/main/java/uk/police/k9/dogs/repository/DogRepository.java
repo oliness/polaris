@@ -15,9 +15,8 @@ import uk.police.k9.dogs.entity.Dog;
 import java.util.Optional;
 
 /**
- * Data access for {@link Dog}. The {@code @Join} declarations fetch the supplier, status and
- * leaving reason in the same statement; without them the list endpoint issues three extra
- * queries per row.
+ * Data access for {@link Dog}. The {@code @Join} declarations fetch the related rows in the same
+ * statement; without them the list endpoint issues three extra queries per row.
  */
 @JdbcRepository(dialect = Dialect.H2)
 public interface DogRepository extends PageableRepository<Dog, Long>, JpaSpecificationExecutor<Dog> {

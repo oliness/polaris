@@ -11,8 +11,8 @@ import uk.police.k9.dogs.entity.Dog;
 import uk.police.k9.dogs.entity.Gender;
 
 /**
- * Converts between {@link Dog} and its API representations. Each target field names which of the
- * two sources it comes from, so adding a field without wiring it up is a compile error.
+ * Converts between {@link Dog} and its API representations. Each target field names its source, so
+ * adding a field without wiring it up is a compile error.
  */
 @Mapper(config = MappingConfiguration.class,
         uses = {SupplierMapper.class, ReferenceDataMapper.class})

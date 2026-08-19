@@ -11,10 +11,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * The {@code ETag} and {@code If-Match} headers that carry a record's version over HTTP.
- *
- * <p>A record's {@code version} column is its entity tag: it changes on every update and on
- * nothing else, which is exactly what a strong validator has to promise.
+ * The {@code ETag} and {@code If-Match} headers that carry a record's version over HTTP. The
+ * {@code version} column changes on every update and on nothing else, as a strong validator must.
  */
 final class ETags {
 
@@ -38,13 +36,9 @@ final class ETags {
     }
 
     /**
-     * The versions an {@code If-Match} header will accept, or {@code null} when the caller set no
-     * precondition. {@code *} asks only that the record exist, which by the time it has been found
-     * is no constraint at all.
-     *
-     * <p>A tag this API could never have issued cannot match anything, so it is dropped rather
-     * than rejected - leaving an empty set, which fails the precondition. That covers a weak tag
-     * too: {@code If-Match} compares strongly, so {@code W/"3"} matches nothing at all.
+     * The versions an {@code If-Match} will accept, or {@code null} when no precondition was set.
+     * A tag this API could not have issued is dropped rather than rejected, leaving an empty set
+     * that fails the precondition - which covers weak tags too, {@code If-Match} comparing strongly.
      */
     @Nullable
     static Set<Long> expectedVersions(@Nullable String ifMatch) {

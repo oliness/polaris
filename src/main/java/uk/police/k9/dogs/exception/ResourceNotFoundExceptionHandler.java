@@ -9,10 +9,7 @@ import io.micronaut.http.server.exceptions.response.ErrorContext;
 import io.micronaut.http.server.exceptions.response.ErrorResponseProcessor;
 import jakarta.inject.Singleton;
 
-/**
- * Answers {@code 404} when a request names a record that does not exist. Handling it here leaves
- * the services free to speak in domain terms and keeps the mapping to HTTP in one place.
- */
+/** Answers {@code 404}, keeping the mapping to HTTP out of the services. */
 @Singleton
 @Produces(MediaType.APPLICATION_JSON)
 public class ResourceNotFoundExceptionHandler

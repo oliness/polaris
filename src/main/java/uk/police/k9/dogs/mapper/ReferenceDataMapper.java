@@ -8,8 +8,8 @@ import uk.police.k9.dogs.dto.ReferenceDataResponse;
 import uk.police.k9.dogs.entity.ReferenceDataEntity;
 
 /**
- * Converts between the reference-data tables and their API representations. Written against
- * {@link ReferenceDataEntity}, so statuses and leaving reasons share one mapper.
+ * Converts between the reference-data tables and their API representations, written against
+ * {@link ReferenceDataEntity} so both lookups share one mapper.
  */
 @Mapper(config = MappingConfiguration.class)
 public interface ReferenceDataMapper {

@@ -9,8 +9,8 @@ import uk.police.k9.dogs.entity.Supplier;
 import java.util.Optional;
 
 /**
- * Data access for {@link Supplier}. {@code JpaSpecificationExecutor} lets the list endpoint
- * combine "not deleted" with the caller's search terms without a query per combination.
+ * Data access for {@link Supplier}. {@code JpaSpecificationExecutor} lets the list endpoint combine
+ * "not deleted" with the caller's search terms without a query per combination.
  */
 @JdbcRepository(dialect = Dialect.H2)
 public interface SupplierRepository extends PageableRepository<Supplier, Long>,

@@ -8,9 +8,8 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * A single page of results. Deliberately a project-owned type rather than Micronaut's
- * {@code Page}, so the JSON shape is part of this application's published contract and does not
- * change when the framework's does.
+ * A single page of results. Project-owned rather than Micronaut's {@code Page}, so the JSON shape
+ * is part of this application's contract and does not change when the framework's does.
  */
 @Serdeable
 @Schema(name = "PagedResponse", description = "A single page of results")

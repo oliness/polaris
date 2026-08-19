@@ -7,8 +7,8 @@ import uk.police.k9.dogs.entity.ReferenceDataEntity;
 import java.util.Optional;
 
 /**
- * The data access every reference-data table needs. Micronaut Data resolves {@code E} to the
- * concrete entity when it generates each implementation, so the subinterfaces stay empty.
+ * The data access every reference-data table needs. Micronaut Data resolves {@code E} when it
+ * generates each implementation, so the subinterfaces stay empty.
  */
 public interface ReferenceDataRepository<E extends ReferenceDataEntity>
         extends PageableRepository<E, Long>, JpaSpecificationExecutor<E> {

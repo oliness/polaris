@@ -7,22 +7,17 @@ import uk.police.k9.dogs.exception.ResourceConflictException;
 
 import java.util.Set;
 
-/**
- * The checks every update makes before it is allowed to touch a record.
- */
+/** The checks every update makes before it is allowed to touch a record. */
 final class Updates {
 
     private Updates() {
     }
 
     /**
-     * Refuses a record that is only being kept for audit, and one that has moved on since the
-     * caller read it.
+     * Refuses a record kept only for audit, and one that has moved on since the caller read it.
      *
-     * @param expectedVersions the versions the caller's {@code If-Match} will accept, or
-     *                         {@code null} when it set no precondition - an update without one
-     *                         still works, it simply gets no protection against overwriting
-     *                         someone else's change
+     * @param expectedVersions the versions {@code If-Match} will accept, or {@code null} when no
+     *                         precondition was set - the update then works without protection
      */
     static void requireEditable(AuditedEntity entity, @Nullable Set<Long> expectedVersions,
                                 String resource) {

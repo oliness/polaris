@@ -8,9 +8,6 @@ import uk.police.k9.dogs.dto.SupplierRequest;
 import uk.police.k9.dogs.dto.SupplierResponse;
 import uk.police.k9.dogs.entity.Supplier;
 
-/**
- * Converts between {@link Supplier} and its API representations.
- */
 @Mapper(config = MappingConfiguration.class)
 public interface SupplierMapper {
 

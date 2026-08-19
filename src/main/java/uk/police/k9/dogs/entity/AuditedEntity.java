@@ -11,8 +11,8 @@ import io.micronaut.data.annotation.Version;
 import java.time.Instant;
 
 /**
- * Fields shared by every table in the register. Nothing is ever physically removed:
- * {@link #deletedAt} is stamped instead, so the audit trail survives.
+ * Fields shared by every table. Nothing is physically removed: {@link #deletedAt} is stamped
+ * instead, so the audit trail survives.
  */
 public abstract class AuditedEntity {
 

@@ -12,9 +12,8 @@ import io.micronaut.http.server.exceptions.response.ErrorResponseProcessor;
 import jakarta.inject.Singleton;
 
 /**
- * Answers {@code 409} when two transactions interleaved and the second write to reach the database
- * was refused by the {@code version} column. A caller who sends the version it read is refused
- * earlier, by the service; this covers the race that gets past that.
+ * Answers {@code 409} when two transactions interleaved and the {@code version} column refused the
+ * second write. A caller who sends the version it read is refused earlier, by the service.
  */
 @Singleton
 @Produces(MediaType.APPLICATION_JSON)

@@ -10,9 +10,9 @@ final class Pagination {
     }
 
     /**
-     * Without a default sort the database may return rows in any order, so page 2 can repeat or
-     * skip what was on page 1. {@code withTotal()} is needed because a {@code Pageable} that was
-     * not asked for a total will refuse to report one.
+     * Without a default sort the database may reorder rows between requests, so page 2 can repeat
+     * or skip page 1. {@code withTotal()} is needed because a {@code Pageable} not asked for a
+     * total refuses to report one.
      */
     static Pageable normalise(Pageable pageable, Sort defaultSort) {
         Pageable sorted = pageable.isSorted() ? pageable : pageable.withSort(defaultSort);

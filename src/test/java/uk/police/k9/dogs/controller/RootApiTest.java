@@ -29,9 +29,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 /**
- * The server root. It is not part of the API - every endpoint of that sits under
- * {@code /api/dogs} - but someone who opens the address the server logs on start-up is shown the
- * register rather than a 404.
+ * The server root. Not part of the API - that all sits under {@code /api/dogs} - but it shows the
+ * register rather than a 404 to anyone opening the address the server logs on start-up.
  */
 @MicronautTest(transactional = false)
 @Property(name = "datasources.default.url", value = "jdbc:h2:mem:dogs-root;DB_CLOSE_DELAY=-1")

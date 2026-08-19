@@ -1,9 +1,6 @@
 package uk.police.k9.dogs.controller;
 
-/**
- * Documentation shared by the paging parameters, which every list endpoint binds from a
- * {@code Pageable} and therefore describes identically.
- */
+/** Documentation shared by the paging parameters, which every list endpoint describes alike. */
 final class ApiParameters {
 
     static final String PAGE = "Zero-based index of the page to return";

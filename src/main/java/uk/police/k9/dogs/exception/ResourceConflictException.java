@@ -1,9 +1,6 @@
 package uk.police.k9.dogs.exception;
 
-/**
- * Thrown when a request is well formed but cannot be applied to the register as it stands.
- * Surfaces as {@code 409 Conflict}.
- */
+/** A well-formed request that cannot be applied to the register. Surfaces as {@code 409}. */
 public class ResourceConflictException extends RuntimeException {
 
     private ResourceConflictException(String message) {

@@ -32,6 +32,7 @@ there is something to look at without creating it first.
 | Swagger UI | <http://localhost:8080/swagger-ui> |
 | Redoc | <http://localhost:8080/redoc> |
 | RapiDoc | <http://localhost:8080/rapidoc> |
+| OpenAPI Explorer | <http://localhost:8080/openapi-explorer> |
 | OpenAPI document | <http://localhost:8080/swagger/police-k9-dogs-api-1.0.0.yml> |
 
 ```bash

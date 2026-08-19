@@ -35,9 +35,9 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * The dogs endpoint, exercised over HTTP against the real database. Each test starts from an empty
- * register - the dog and supplier tables are cleared, leaving the seeded reference data - so what
- * a list returns can be asserted exactly. The database is this class's own.
+ * The dogs endpoint over HTTP against the real database. Each test starts from an empty register -
+ * the dog and supplier tables are cleared, leaving the seeded reference data - so a list can be
+ * asserted exactly.
  */
 @MicronautTest(transactional = false)
 @Property(name = "datasources.default.url", value = "jdbc:h2:mem:dogs-api;DB_CLOSE_DELAY=-1")
@@ -469,10 +469,7 @@ class DogApiTest {
                 Argument.of(PagedResponse.class, DogResponse.class));
     }
 
-    /**
-     * Runs a request expected to fail and returns the error body, so a test can say what the API
-     * should have answered rather than how the client reports it.
-     */
+    /** Runs a request expected to fail and returns the error body. */
     private ApiError failure(HttpStatus expected, HttpRequest<?> request) {
         try {
             client.exchange(request, Argument.STRING);

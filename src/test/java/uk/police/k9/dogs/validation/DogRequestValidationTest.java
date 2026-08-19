@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * The constraints on a dog, checked directly against the validator rather than through HTTP, so
- * that each rule can be stated on its own.
+ * The constraints on a dog, checked against the validator rather than through HTTP so each rule
+ * can be stated on its own.
  */
 @MicronautTest(startApplication = false)
 @DisplayName("The details supplied for a dog")

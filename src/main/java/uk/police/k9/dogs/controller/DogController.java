@@ -37,9 +37,8 @@ import uk.police.k9.dogs.service.DogService;
 import java.net.URI;
 
 /**
- * The dogs registered with the force. The controller does no work of its own: it binds, validates,
- * delegates to {@link DogService} and responds. Database work is blocking, so the routes are
- * dispatched onto the blocking executor rather than tying up the Netty event loop.
+ * The dogs registered with the force: bind, validate, delegate to {@link DogService}, respond.
+ * Database work is blocking, so the routes are dispatched onto the blocking executor.
  */
 @Controller(ApiPaths.DOGS)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -77,8 +76,8 @@ public class DogController {
     @ApiResponse(responseCode = "200", description = "A page of dogs")
     @ApiResponse(responseCode = "400", description = "The filter or paging parameters were invalid")
     public PagedResponse<DogResponse> list(
-            // Documented by the operation above instead: left to itself the generator expands the
-            // record into one query parameter per field and never mentions filter at all.
+            // Documented by the operation above: left to itself the generator expands the record
+            // into one query parameter per field and never mentions filter.
             @Parameter(hidden = true)
             @QueryValue @Nullable DogFilter filter,
             @Parameter(description = "Include dogs kept only for audit")

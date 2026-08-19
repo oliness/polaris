@@ -23,9 +23,8 @@ import uk.police.k9.dogs.exception.ApiError;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * The endpoints behind the enumerated values a dog carries. The task lists the statuses and
- * leaving reasons as the values that are <em>currently</em> possible, so they are rows the force
- * maintains. These tests cover both, since they are the same endpoint over different tables.
+ * The endpoints behind the enumerated values a dog carries. Statuses and leaving reasons are the
+ * same endpoint over different tables, so these tests cover both.
  */
 @MicronautTest(transactional = false)
 @Property(name = "datasources.default.url", value = "jdbc:h2:mem:reference-api;DB_CLOSE_DELAY=-1")

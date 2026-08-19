@@ -8,8 +8,8 @@ import java.time.Instant;
 import java.time.LocalDate;
 
 /**
- * A dog as returned by the API. Relationships are expanded rather than returned as bare
- * identifiers, so a client can render a list without a second call per row.
+ * A dog as returned by the API, with relationships expanded so a client can render a list without
+ * a second call per row.
  */
 @Serdeable
 @Schema(name = "DogResponse", description = "A dog registered with the force")

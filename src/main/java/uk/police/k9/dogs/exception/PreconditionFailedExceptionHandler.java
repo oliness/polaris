@@ -10,10 +10,7 @@ import io.micronaut.http.server.exceptions.response.ErrorContext;
 import io.micronaut.http.server.exceptions.response.ErrorResponseProcessor;
 import jakarta.inject.Singleton;
 
-/**
- * Answers {@code 412} when the record no longer carries the version the caller's {@code If-Match}
- * asked for - someone else changed it in between.
- */
+/** Answers {@code 412} when the record no longer carries the version {@code If-Match} asked for. */
 @Singleton
 @Produces(MediaType.APPLICATION_JSON)
 public class PreconditionFailedExceptionHandler

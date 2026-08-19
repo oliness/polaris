@@ -4,10 +4,7 @@ import io.micronaut.serde.annotation.Serdeable;
 import io.swagger.v3.oas.annotations.media.Schema;
 import uk.police.k9.dogs.entity.Gender;
 
-/**
- * One of the permitted values for a dog's gender, in the same {@code code}/{@code label} shape as
- * the maintainable lookups so a client can render every enumerated field the same way.
- */
+/** A permitted gender, in the same {@code code}/{@code label} shape as the maintained lookups. */
 @Serdeable
 @Schema(name = "GenderResponse", description = "A permitted value for a dog's gender")
 public record GenderResponse(

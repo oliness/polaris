@@ -12,11 +12,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 /**
- * Binds the {@code filter} query parameter, which the task specifies as JSON
- * ({@code ?filter={"name":"bax"}}), to a {@link DogFilter}.
- *
- * <p>Converting here rather than parsing in the controller keeps the controller signature honest
- * and means malformed JSON is rejected during binding, before any controller code runs.
+ * Binds the {@code filter} query parameter, which the task specifies as JSON, to a
+ * {@link DogFilter}. Converting here rejects malformed JSON during binding, before the controller.
  */
 @Singleton
 public class DogFilterConverter implements TypeConverter<String, DogFilter> {

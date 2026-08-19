@@ -25,10 +25,7 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-/**
- * The rules shared by the maintainable lookups, exercised through the dog statuses. Leaving
- * reasons inherit the same behaviour from {@link ReferenceDataService}.
- */
+/** The rules shared by the maintainable lookups, exercised through the dog statuses. */
 @ExtendWith(MockitoExtension.class)
 @DisplayName("A maintainable lookup")
 class ReferenceDataServiceTest {
